@@ -1,0 +1,7 @@
+Unix setup
+
+Copy .bash_profile and .vimrc to home directory.
+.vimrc requires fuzzyfinder and l9 to be installed
+
+fuzzyfinder - http://www.vim.org/scripts/script.php?script_id=1984
+l9 - http://www.vim.org/scripts/script.php?script_id=3252
