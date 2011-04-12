@@ -28,6 +28,6 @@ set hid " hide abandon buffers in order to not lose undo history
 
 :au Filetype xml nmap <C-l> :%!xmllint --format -<CR>
 
-:au BufRead,BufNewFile *.json set filetype=json
-:au BufRead,BufNewFile *.avsc set filetype=json
-:au Filetype json nmap <C-l> :%!ppjson<CR>
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F3>
+set showmode
