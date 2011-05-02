@@ -9,16 +9,10 @@ set ruler
 map <f2> :w\|!python2.6 %<CR>
 set hlsearch
 
-"set go-=T
-"set bg=dark
-"if &background == "dark"
-"    hi normal guibg=black
-"    set transp=8
-"endif
-
 map ,f :FufFile <CR>
 map ,r :FufRenewCache <CR>
-highlight PmenuSel ctermfg=black
+highlight Pmenu ctermbg=darkyellow ctermfg=black
+highlight PmenuSel ctermbg=lightgreen ctermfg=black
 
 imap <C-a> <Esc>0i
 imap <C-e> <Esc>$a
@@ -28,6 +22,6 @@ set hid " hide abandon buffers in order to not lose undo history
 
 :au Filetype xml nmap <C-l> :%!xmllint --format -<CR>
 
-nnoremap <F2> :set invpaste paste?<CR>
+nnoremap <F3> :set invpaste paste?<CR>
 set pastetoggle=<F3>
 set showmode
