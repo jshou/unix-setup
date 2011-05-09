@@ -6,13 +6,13 @@ set autoindent
 set expandtab
 set shiftwidth=4
 set ruler
-map <f2> :w\|!python2.6 %<CR>
+"figure out how to do this with multiple languages simultaneously
+map <f2> :w\|!python %<CR>
+map <f4> :w\|!ruby %<CR>
 set hlsearch
 
 map ,f :FufFile <CR>
 map ,r :FufRenewCache <CR>
-highlight Pmenu ctermbg=darkyellow ctermfg=black
-highlight PmenuSel ctermbg=lightgreen ctermfg=black
 
 imap <C-a> <Esc>0i
 imap <C-e> <Esc>$a
@@ -25,3 +25,8 @@ set hid " hide abandon buffers in order to not lose undo history
 nnoremap <F3> :set invpaste paste?<CR>
 set pastetoggle=<F3>
 set showmode
+
+set background=dark
+colorscheme ir_black
+highlight Pmenu ctermbg=darkgrey ctermfg=grey
+highlight PmenuSel ctermbg=white ctermfg=black
