@@ -56,3 +56,4 @@ set list
 set nocompatible " disable vi-compatibility
 set laststatus=2 " always show the statusline
 set t_Co=256
+highlight Statement ctermfg=178
