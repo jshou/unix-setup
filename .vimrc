@@ -31,11 +31,13 @@ set showmode
 
 "set background=dark
 "colorscheme ir_black
+highlight Search ctermfg=black
 highlight Pmenu ctermbg=darkgrey ctermfg=grey
 highlight PmenuSel ctermbg=white ctermfg=black
 
-set colorcolumn=121
-hi ColorColumn ctermbg=lightgrey
+" only works on vim 7.3
+"set ColorColumn=121
+"hi ColorColumn ctermbg=lightgrey
 
 "cursor line
 :hi CursorLine cterm=NONE ctermbg=darkgrey
