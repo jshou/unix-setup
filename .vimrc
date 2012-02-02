@@ -1,15 +1,21 @@
+call pathogen#infect()
+
+" pathogen
+" supertab
+" l9
+" powerline
+" fuzzy finder
+" fugitive
+
 syntax on
 filetype indent on
-set fileencodings=utf8,latin1
+set fileencodings=utf8 ",latin1
+set encoding=utf8
 set tabstop=4
 set autoindent
 set expandtab
 set shiftwidth=4
 set ruler
-"figure out how to do this with multiple languages simultaneously
-map <f2> :w\|!python %<CR>
-map <f4> :w\|!ruby %<CR>
-map <f5> :w\|!jruby %<CR>
 set hlsearch
 
 let mapleader = ","
@@ -22,32 +28,16 @@ imap <C-e> <Esc>$a
 autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 set hid " hide abandon buffers in order to not lose undo history
 
-:au Filetype xml nmap <C-l> :%!xmllint --format -<CR>
-:au Filetype json nmap <C-l> :%!ppjson -<CR>
-
 nnoremap <F3> :set invpaste paste?<CR>
 set pastetoggle=<F3>
 set showmode
-
-"set background=dark
-"colorscheme ir_black
-highlight Search ctermfg=black
-highlight Pmenu ctermbg=darkgrey ctermfg=grey
-highlight PmenuSel ctermbg=white ctermfg=black
 
 " only works on vim 7.3
 "set ColorColumn=121
 "hi ColorColumn ctermbg=lightgrey
 
-"cursor line
-:hi CursorLine cterm=NONE ctermbg=darkgrey
-" set cul
-
 " map f8 to show the syntax coloring for a character
 map <F8> :echo synIDattr(synID(line("."),col("."),1),"name")<cr>
-
-" default rubyTodo fg collides with cursorline
-highlight rubyTodo ctermfg=darkblue ctermbg=yellow
 
 " part of ~/.vimrc
 " highlight tabs and trailing spaces
@@ -57,5 +47,28 @@ set list
 " https://github.com/Lokaltog/vim-powerline
 set nocompatible " disable vi-compatibility
 set laststatus=2 " always show the statusline
-set t_Co=256
+set t_Co=256 " 256 colors
 highlight Statement ctermfg=178
+
+"set background=dark
+"colorscheme ir_black
+highlight Search ctermfg=black
+highlight Pmenu ctermbg=23 ctermfg=white
+highlight PmenuSel ctermbg=white ctermfg=black
+
+" highlight anything longer than 120 chars
+match ErrorMsg '\%>120v.\+'
+
+" highlight line
+set cul
+hi CursorLine cterm=NONE ctermbg=233
+
+"clipboard
+" Copy to X CLIPBOARD
+map <leader>cc :w !xsel -i -b<CR><CR>
+map <leader>cp :w !xsel -i -p<CR>
+map <leader>cs :w !xsel -i -s<CR>
+" Paste from X CLIPBOARD
+map <leader>pp :r!xsel -p<CR>
+map <leader>ps :r!xsel -s<CR>
+map <leader>pb :r!xsel -b<CR>
