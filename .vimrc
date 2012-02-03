@@ -32,10 +32,6 @@ nnoremap <F3> :set invpaste paste?<CR>
 set pastetoggle=<F3>
 set showmode
 
-" only works on vim 7.3
-"set ColorColumn=121
-"hi ColorColumn ctermbg=lightgrey
-
 " map f8 to show the syntax coloring for a character
 map <F8> :echo synIDattr(synID(line("."),col("."),1),"name")<cr>
 
@@ -48,20 +44,12 @@ set list
 set nocompatible " disable vi-compatibility
 set laststatus=2 " always show the statusline
 set t_Co=256 " 256 colors
-highlight Statement ctermfg=178
-
-"set background=dark
-"colorscheme ir_black
-highlight Search ctermfg=black
-highlight Pmenu ctermbg=23 ctermfg=white
-highlight PmenuSel ctermbg=white ctermfg=black
 
 " highlight anything longer than 120 chars
 match ErrorMsg '\%>120v.\+'
 
 " highlight line
 set cul
-hi CursorLine cterm=NONE ctermbg=233
 
 "clipboard
 " Copy to X CLIPBOARD
@@ -72,3 +60,5 @@ map <leader>cs :w !xsel -i -s<CR>
 map <leader>pp :r!xsel -p<CR>
 map <leader>ps :r!xsel -s<CR>
 map <leader>pb :r!xsel -b<CR>
+
+colors josh
