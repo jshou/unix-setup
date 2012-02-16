@@ -49,16 +49,12 @@ set t_Co=256 " 256 colors
 match ErrorMsg '\%>120v.\+'
 
 " highlight line
-set cul
+"set cul
 
-"clipboard
-" Copy to X CLIPBOARD
-map <leader>cc :w !xsel -i -b<CR><CR>
-map <leader>cp :w !xsel -i -p<CR>
-map <leader>cs :w !xsel -i -s<CR>
-" Paste from X CLIPBOARD
-map <leader>pp :r!xsel -p<CR>
-map <leader>ps :r!xsel -s<CR>
-map <leader>pb :r!xsel -b<CR>
+set bg=dark
+colors hemisu
 
-colors josh
+set backspace=indent,eol,start
+
+" visual beep, so that there's no annoying beep
+set vb
