@@ -6,6 +6,7 @@ call pathogen#infect()
 " powerline
 " fuzzy finder
 " fugitive
+" MiniBufExplorer
 
 syntax on
 filetype indent on
