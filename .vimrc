@@ -22,11 +22,13 @@ set hlsearch
 let mapleader = ","
 map <leader>t :FufFile <CR>
 map <leader>w :FufRenewCache <CR>
+map <leader>b :FufBuffer <CR>
 
 imap <C-a> <Esc>0i
 imap <C-e> <Esc>$a
 
-autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+autocmd BufNewFile,BufRead *.prawn set filetype=ruby
+autocmd FileType ruby,eruby,yaml set sw=2 sts=2
 set hid " hide abandon buffers in order to not lose undo history
 
 nnoremap <F3> :set invpaste paste?<CR>
@@ -59,3 +61,7 @@ set backspace=indent,eol,start
 
 " visual beep, so that there's no annoying beep
 set vb
+
+
+" vimroom
+let g:vimroom_width=150
