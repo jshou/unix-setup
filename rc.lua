@@ -52,7 +52,6 @@ volume("update", tb_volume)
 
 -- (josh) end volume
 
-
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
@@ -73,10 +72,9 @@ end
 -- (josh) setting wmname to something else because java programs won't work without this
 awful.util.spawn_with_shell("wmname LG3D")
 run_once("wmname LG3D")
-run_once("gnome-power-manager")
+run_once("xfce4-power-manager")
 run_once("nm-applet")
-run_once("ivman")
-run_once("gnome-volume-control-applet")
+run_once("volumeicon")
 run_once("parcellite")
 -- (josh) end run_once
 
@@ -90,7 +88,6 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
@@ -101,7 +98,8 @@ layouts =
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier
+    awful.layout.suit.magnifier,
+    awful.layout.suit.floating
 }
 -- }}}
 
@@ -400,6 +398,14 @@ client.add_signal("manage", function (c, startup)
         if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
             and awful.client.focus.filter(c) then
             client.focus = c
+        end
+    end)
+
+    c:add_signal("property::floating", function(c)  if awful.client.floating.get(c)
+        then
+            awful.titlebar.add(c, { modkey = modkey })
+        else
+            awful.titlebar.remove(c, { modkey = modkey })
         end
     end)
 
