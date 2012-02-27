@@ -70,6 +70,7 @@ function run_once(prg)
     awful.util.spawn_with_shell("pgrep -f -u $USER -x " .. prg .. " || (" .. prg .. ")")
 end
 -- (josh) setting wmname to something else because java programs won't work without this
+awful.util.spawn_with_shell("setxkbmap -option ctrl:swapcaps")
 awful.util.spawn_with_shell("wmname LG3D")
 run_once("wmname LG3D")
 run_once("xfce4-power-manager")
