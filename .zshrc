@@ -1,15 +1,7 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -40,7 +32,10 @@ alias pbpaste='xsel --clipboard --output'
 
 export PATH="/opt/node/bin:$PATH"
 
-alias be='bundle exec'
+alias tree="tree -C"
+alias be='nocorrect bundle exec'
+alias knife='nocorrect knife'
+alias sudo='nocorrect sudo'
 
 export EDITOR=vim
 
@@ -52,7 +47,6 @@ export PATH="/usr/local/bin/idea-IC-111.277/bin:/usr/local/bin/apache-maven-3.0.
 export JAVA_HOME="/usr/lib/jvm/java-6-sun"
 export PATH="/usr/local/mysql/bin:$PATH"
 export ANDROID_HOME='/home/jshou/android-sdk-linux_x86/'
-
 
 # WINE WINE WINE
 prefix() {
