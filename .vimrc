@@ -6,7 +6,7 @@ call pathogen#infect()
 " powerline
 " fuzzy finder
 " fugitive
-" MiniBufExplorer
+" BufExplorer
 
 syntax on
 filetype indent on
@@ -28,6 +28,7 @@ imap <C-a> <Esc>0i
 imap <C-e> <Esc>$a
 
 autocmd BufNewFile,BufRead *.prawn set filetype=ruby
+autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd FileType ruby,eruby,yaml set sw=2 sts=2
 set hid " hide abandon buffers in order to not lose undo history
 
