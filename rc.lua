@@ -77,6 +77,7 @@ run_once("xfce4-power-manager")
 run_once("nm-applet")
 run_once("volumeicon")
 run_once("parcellite")
+run_once("pulseaudio -D")
 -- (josh) end run_once
 
 -- Default modkey.

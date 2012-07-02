@@ -1,6 +1,6 @@
 [global_config]
   title_transmit_bg_color = "#ad0707"
-  title_inactive_bg_color = "#000000"
+  title_inactive_bg_color = "#696969"
   handle_size = 1
   focus = system
 [keybindings]
@@ -13,10 +13,9 @@
     scrollback_lines = 5000
     use_system_font = False
     cursor_color = "#d8d8d8"
-    foreground_color = "#ffffff"
     scroll_on_output = False
     color_scheme = custom
-    font = Ubuntu Mono 11
+    font = Ubuntu Mono 12
     scrollback_infinite = True
   [[New Profile]]
 [layouts]
