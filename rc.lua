@@ -54,7 +54,7 @@ volume("update", tb_volume)
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+beautiful.init("/home/jshou/.awesome/themes/zenburn/theme.lua")
 
 
 -- This is used later as the default terminal and editor to run.
