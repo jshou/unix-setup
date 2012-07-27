@@ -75,7 +75,7 @@ awful.util.spawn_with_shell("wmname LG3D")
 run_once("wmname LG3D")
 run_once("xfce4-power-manager")
 run_once("nm-applet")
-run_once("volumeicon")
+run_once("gnome-sound-applet")
 run_once("parcellite")
 run_once("pulseaudio -D")
 -- (josh) end run_once
@@ -246,9 +246,15 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
     -- volume keys
-    awful.key({ }, "XF86AudioRaiseVolume", function () volume("up", tb_volume) end),
-    awful.key({ }, "XF86AudioLowerVolume", function () volume("down", tb_volume) end),
-    awful.key({ }, "XF86AudioMute", function () volume("mute", tb_volume) end),
+--  awful.key({ }, "XF86AudioRaiseVolume", function () volume("up", tb_volume) end),
+--  awful.key({ }, "XF86AudioLowerVolume", function () volume("down", tb_volume) end),
+--  awful.key({ }, "XF86AudioMute", function () volume("mute", tb_volume) end),
+    awful.key({ }, "XF86AudioRaiseVolume", function ()
+        awful.util.spawn("amixer set Master 9%+") end),
+    awful.key({ }, "XF86AudioLowerVolume", function ()
+        awful.util.spawn("amixer set Master 9%-") end),
+    awful.key({ }, "XF86AudioMute", function ()
+        awful.util.spawn("amixer set Master toggle") end),
     awful.key({ modkey, "shift"   }, "n",
     function ()
         local allclients = client.get(mouse.screen)
@@ -427,3 +433,17 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- This is to fix systray applet colors
+-- The systray is a bit complex. We need to configure it to display
+-- the right colors. Here is a link with more background about this:
+--  http://thread.gmane.org/gmane.comp.window-managers.awesome/9028
+xprop = assert(io.popen("xprop -root _NET_SUPPORTING_WM_CHECK"))
+wid = xprop:read():match("^_NET_SUPPORTING_WM_CHECK.WINDOW.: window id # (0x[%S]+)$")
+xprop:close()
+if wid then
+   wid = tonumber(wid) + 1
+   os.execute("xprop -id " .. wid .. " -format _NET_SYSTEM_TRAY_COLORS 32c " ..
+          "-set _NET_SYSTEM_TRAY_COLORS " ..
+          "65535,65535,65535,65535,8670,8670,65535,32385,0,8670,65535,8670")
+end
